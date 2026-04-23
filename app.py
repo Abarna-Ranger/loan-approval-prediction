@@ -1,6 +1,16 @@
 import streamlit as st
 import numpy as np
 import pickle
+# DEBUG MESSAGE
+st.write("App started successfully ✅")
+
+# LOAD MODEL
+try:
+    model = pickle.load(open("model.pkl", "rb"))
+    scaler = pickle.load(open("scaler.pkl", "rb"))
+    st.write("Model & Scaler loaded ✅")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
 # =========================
 # LOAD MODEL & SCALER
